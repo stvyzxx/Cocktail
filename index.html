@@ -1,1 +1,914 @@
-Hello World
+<!doctype html>
+
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+
+  <title>Cocktail Form</title>
+  <meta name="description" content="Cocktail Form">
+  <meta name="author" content="SitePoint">
+	
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+<link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/jquery-ui-1.11.2/jquery-ui.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+	<form action="http://example.org/" id="cocktailForm" name="cocktailForm">
+	<!-- ========== aboutWrapper ========== -->
+		<div id="aboutWrapper"  class="fieldset-wrapper border-gradient">
+			<fieldset id="about" class="content-gradient">
+				<legend>Описание</legend>
+				<div id="fieldsBlock">
+					<label for="name">Название коктейля:</label><br>
+					<input type="text" id="name" name="name" maxlength="30" required><br>
+					<label for="altName">Альтернативные названия (через запятую):</label><br>
+					<input type="text" id="altName" name="altName" maxlength="45"><br>
+					<label for="shortText">Краткое описание</label><br>
+					<textarea name="shortText" id="shortText" cols="30" rows="10" maxlength="600"></textarea><br>
+					<label for="largeText">Интрукция для приготовления</label><br>
+					<textarea name="largeText" id="largeText" cols="30" rows="10"  maxlength="700"></textarea>
+				</div>
+				<div id="logo">
+					<h1><img src="images/slogan.png" alt="О ВКУСАХ НЕ СПОРЯТ."></h1>
+					<h2>Выбери свой напиток.</h2>
+					<img id="goblet" src="images/goblet.png" alt="">
+				</div>
+			</fieldset>
+		</div>
+		
+	<!-- ========== ingredientsWrapper ========== -->	
+		<div id="ingredientsWrapper" class="fieldset-wrapper border-gradient">
+			<fieldset id="ingredients" class="content-gradient">
+				<legend>Ингредиенты</legend>
+					<span class="fields-title">Название:</span>
+					<span class="fields-title">Кол-во:</span>
+					<span class="fields-title">Единица:</span>
+					<span class="fields-title">Украшение:</span><br>
+					
+				<div class="line">
+					<div class="spinner-wrapper ingredient-name" >
+						<input type="text"  name="line1-name" placeholder="Нет" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+					<div class="quantity-wrapper">						
+						<input type="text" name="line1-quantity" placeholder="-" pattern="[0-9]+">
+					</div>
+					
+					<div class="spinner-wrapper dimension">
+						<input type="text"  name="line1-dimension" placeholder="-" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+					<div class="checkbox-wrapper">
+						<input type="checkbox" id="ingredient-checkbox1">
+						<label for="ingredient-checkbox1"  class="checkbox-label"></label>
+					</div>
+				</div>
+				
+				<div class="line">
+
+					<div class="spinner-wrapper ingredient-name">
+						<input type="text"  name="line2-name" placeholder="Нет" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+					<div class="quantity-wrapper">						
+						<input type="text" name="line2-quantity" placeholder="-">
+					</div>
+					
+					<div class="spinner-wrapper dimension">
+						<input type="text"  name="line2-dimension" placeholder="-" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+					<div class="checkbox-wrapper">
+						<input type="checkbox" id="ingredient-checkbox2">
+						<label for="ingredient-checkbox2" class="checkbox-label"></label>
+					</div>
+					
+				</div>
+				
+				<div class="line">
+
+					<div class="spinner-wrapper ingredient-name">
+						<input type="text"  name="line3-name" placeholder="Нет" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+					<div class="quantity-wrapper">						
+						<input type="text" name="line3-quantity" placeholder="-">
+					</div>
+					
+					<div class="spinner-wrapper dimension">
+						<input type="text"  name="line3-dimension" placeholder="-" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+					<div class="checkbox-wrapper">
+						<input type="checkbox" id="ingredient-checkbox3">
+						<label for="ingredient-checkbox3"  class="checkbox-label"></label>
+					</div>
+					
+				</div>
+				
+				<div class="line">
+
+					<div class="spinner-wrapper ingredient-name">
+						<input type="text"  name="line4-name" placeholder="Нет" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+					<div class="quantity-wrapper">						
+						<input type="text" name="line4-quantity" placeholder="-">
+					</div>
+					
+					<div class="spinner-wrapper dimension">
+						<input type="text"  name="line4-dimension" placeholder="-" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+					<div class="checkbox-wrapper">
+						<input type="checkbox" id="ingredient-checkbox4">
+						<label for="ingredient-checkbox4"  class="checkbox-label"></label>
+					</div>
+					
+				</div>
+				
+				<div class="line">
+
+					<div class="spinner-wrapper ingredient-name">
+						<input type="text" name="line5-name" placeholder="Нет" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+					<div class="quantity-wrapper">						
+						<input type="text" name="line5-quantity" placeholder="-">
+					</div>
+					
+					<div class="spinner-wrapper dimension">
+						<input type="text"  name="line5-dimension" placeholder="-" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+					<div class="checkbox-wrapper">
+						<input type="checkbox" id="ingredient-checkbox5">
+						<label for="ingredient-checkbox5"  class="checkbox-label"></label>
+					</div>
+					
+				</div>
+				
+				<div class="line">
+
+					<div class="spinner-wrapper ingredient-name">
+						<input type="text" name="line6-name" placeholder="Нет" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+					<div class="quantity-wrapper">						
+						<input type="text" name="line6-quantity" placeholder="-">
+					</div>
+					
+					<div class="spinner-wrapper dimension">
+						<input type="text"  name="line6-dimension" placeholder="-" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+					<div class="checkbox-wrapper">
+						<input type="checkbox" id="ingredient-checkbox6">
+						<label for="ingredient-checkbox6"  class="checkbox-label"></label>
+					</div>
+					
+				</div>
+				
+				<div class="line">
+
+					<div class="spinner-wrapper ingredient-name">
+						<input type="text" name="line7-name" placeholder="Нет" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+					<div class="quantity-wrapper">						
+						<input type="text" name="line7-quantity" placeholder="-">
+					</div>
+					
+					<div class="spinner-wrapper dimension">
+						<input type="text"  name="line7-dimension" placeholder="-" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+					<div class="checkbox-wrapper">
+						<input type="checkbox" id="ingredient-checkbox7">
+						<label for="ingredient-checkbox7"  class="checkbox-label"></label>
+					</div>
+					
+				</div>
+				
+				</fieldset>
+		</div>	
+		
+	<!-- ========== optionsWrapper ========== -->	
+		<div id="optionsWrapper"  class="fieldset-wrapper border-gradient">
+			<fieldset id="options" class="content-gradient">
+				<legend>Параметры</legend>
+				
+					<span>Количество порций</span><br>				
+					<div class="spinner-wrapper options-quantity">
+						<input type="text" name="option-line1-name" placeholder="-" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+					<span>Время приготовления</span><br>			
+					<div class="spinner-wrapper options-time">
+						<input type="text" name="option-line2-name" placeholder="-" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+					<span>Сложность приготовления</span><br>			
+					<div class="spinner-wrapper options-complexity">
+						<input type="text" name="option-line3-name" placeholder="-" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+					<span>Метод приготовления</span><br>			
+					<div class="spinner-wrapper options-method">
+						<input type="text" name="option-line4-name" placeholder="-" disabled>
+						<div class="spinner-arrows-wrapper">
+							<a href="#" class="arrow-up">
+								<span class="arrow-triangle"></span>
+							</a>
+							<a href="#" class="arrow-down">
+								<span class="arrow-triangle"></span>
+							</a>
+						</div>
+					</div>
+					
+			</fieldset >
+		</div>	
+	<!-- ========== photoWrapper ========== -->		
+		<div id="photoWrapper"  class="fieldset-wrapper border-gradient">
+			<fieldset id="photo" class="content-gradient">
+				<div id="photoArrow">Фотография: <div id="hideArrow"></div></div>
+				<div id="gobletImg"><img src="images/goblet.jpg" alt="goblet"></div>
+				<span id="clickToLarge">Щелкните, чтобы посмотреть в полный размер</span>
+				<span id="dot"></span>
+				<input type="file" name="loadImage" id="loadImage">
+				<label class="button" for="loadImage"><span></span></label>
+			</fieldset>
+		</div>
+	
+	<!-- ========== cocktail type ========== -->				
+		<div class="title type-title">ТИП КОКТЕЙЛЯ<span></span></div>
+		
+	<!-- ========== sturdinessWrapper ========== -->	
+		<div id="sturdinessWrapper"  class="fieldset-wrapper border-gradient">
+			<fieldset id="sturdiness" class="content-gradient">
+						<legend >По крепкости:</legend>
+						<div class="radioWrapper">
+						
+							<input type="radio" class="radioStyle" id="sturdiness-radio-1" name="sturdiness-radio">
+							<label class="sturdiness-radio-label" for="sturdiness-radio-1">
+								<span class="radio-circle"></span>
+							</label>
+							
+							<input type="radio" class="radioStyle" id="sturdiness-radio-2" name="sturdiness-radio">
+							<label class="sturdiness-radio-label" for="sturdiness-radio-2">
+								<span class="radio-circle"></span>
+							</label>
+							
+							<input type="radio" class="radioStyle" id="sturdiness-radio-3" name="sturdiness-radio">
+							<label class="sturdiness-radio-label" for="sturdiness-radio-3">
+								<span class="radio-circle"></span>
+							</label>
+							
+							<input type="radio" class="radioStyle" id="sturdiness-radio-4" name="sturdiness-radio">
+							<label class="sturdiness-radio-label" for="sturdiness-radio-4">
+								<span class="radio-circle"></span>
+							</label>
+																			
+						</div>
+			</fieldset>
+		</div>
+	
+	<!-- ========== baseWrapper ========== -->	
+		<div id="baseWrapper"  class="input-field fieldset-wrapper border-gradient">
+				<fieldset id="base" class="content-gradient">
+							<legend>На основе:</legend>
+							<div class="radioWrapper">
+								<div class="invisible">
+									<div class="slider-elem">
+										<input type="radio" class="radioStyle" id="base-radio-1" name="base-radio">
+										<label class="base-radio-label" for="base-radio-1">
+											<span class="radio-title">Абсента</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="base-radio-2" name="base-radio">
+										<label class="base-radio-label" for="base-radio-2">
+											<span class="radio-title">Водки</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="base-radio-3" name="base-radio">
+										<label class="base-radio-label" for="base-radio-3">
+											<span class="radio-title">Джина</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="base-radio-4" name="base-radio">
+										<label class="base-radio-label" for="base-radio-4">
+											<span class="radio-title">Виски</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="base-radio-5" name="base-radio">
+										<label class="base-radio-label" for="base-radio-5">
+											<span class="radio-title">Бренди</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="base-radio-6" name="base-radio">
+										<label class="base-radio-label" for="base-radio-6">
+											<span class="radio-title">Ликера</span>
+											<span class="radio-circle"></span>
+										</label>	
+
+										<input type="radio" class="radioStyle" id="base-radio-7" name="base-radio">
+										<label class="base-radio-label" for="base-radio-7">
+											<span class="radio-title">Кальвадоса</span>
+											<span class="radio-circle"></span>
+										</label>
+
+										<input type="radio" class="radioStyle" id="base-radio-8" name="base-radio">
+										<label class="base-radio-label" for="base-radio-8">
+											<span class="radio-title">Текилы</span>
+											<span class="radio-circle"></span>
+										</label>	
+
+										<input type="radio" class="radioStyle" id="base-radio-9" name="base-radio">
+										<label class="base-radio-label" for="base-radio-9">
+											<span class="radio-title">Рома</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="base-radio-10" name="base-radio">
+										<label class="base-radio-label" for="base-radio-10">
+											<span class="radio-title">Вина</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="base-radio-11" name="base-radio">
+										<label class="base-radio-label" for="base-radio-11">
+											<span class="radio-title">Пива</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="base-radio-12" name="base-radio">
+										<label class="base-radio-label" for="base-radio-12">
+											<span class="radio-title">Пусто</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="base-radio-13" name="base-radio">
+										<label class="base-radio-label" for="base-radio-13">
+											<span class="radio-title">Пусто</span>
+											<span class="radio-circle"></span>
+										</label>
+									</div>
+								</div>	
+							</div>
+							
+				</fieldset>
+			</div>
+	
+	<!-- ========== slider ==============-->	
+		<div class="slider">
+			<div class="prev-arrow-block">
+				<a class="prevArrow" href="#">
+					<img src="images/prev.png" alt="">
+				</a>
+			</div>
+			<div class="next-arrow-block">
+				<a class="nextArrow" href="#">
+					<img src="images/next.png" alt="">
+				</a>
+			</div>
+			<div class="slider-zone">
+				<div class="slider-thumb"></div>
+			</div>
+			<div class="list">
+				<span class="list-title">Показать списком</span>
+			</div>
+		</div>
+	
+	<!-- ==========typeWrapper ========== -->	
+		<div id="typeWrapper"  class="fieldset-wrapper border-gradient">
+				<fieldset id="type" class="content-gradient">
+							<legend>По типу:</legend>
+							<div class="radioWrapper">
+								<div class="invisible">
+									<div class="slider-elem">
+										<input type="radio" class="radioStyle" id="type-radio-1" name="type-radio">
+										<label class="type-radio-label" for="type-radio-1">
+											<span class="radio-title">Аперетива</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="type-radio-2" name="type-radio">
+										<label class="type-radio-label" for="type-radio-2">
+											<span class="radio-title">Диджестивы</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="type-radio-3" name="type-radio">
+										<label class="type-radio-label" for="type-radio-3">
+											<span class="radio-title">Гарячие</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="type-radio-4" name="type-radio">
+										<label class="type-radio-label" for="type-radio-4">
+											<span class="radio-title">Молочные</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="type-radio-5" name="type-radio">
+										<label class="type-radio-label" for="type-radio-5">
+											<span class="radio-title">Десертные</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="type-radio-6" name="type-radio">
+										<label class="type-radio-label" for="type-radio-6">
+											<span class="radio-title">Слоистые</span>
+											<span class="radio-circle"></span>
+										</label>	
+
+										<input type="radio" class="radioStyle" id="type-radio-7" name="type-radio">
+										<label class="type-radio-label" for="type-radio-7">
+											<span class="radio-title">Дейзи</span>
+											<span class="radio-circle"></span>
+										</label>
+
+										<input type="radio" class="radioStyle" id="type-radio-8" name="type-radio">
+										<label class="type-radio-label" for="type-radio-8">
+											<span class="radio-title">Джулепы</span>
+											<span class="radio-circle"></span>
+										</label>	
+
+										<input type="radio" class="radioStyle" id="type-radio-9" name="type-radio">
+										<label class="type-radio-label" for="type-radio-9">
+											<span class="radio-title">Кардиналы</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="type-radio-10" name="type-radio">
+										<label class="type-radio-label" for="type-radio-10">
+											<span class="radio-title">Коблеры</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="type-radio-11" name="type-radio">
+										<label class="type-radio-label" for="type-radio-11">
+											<span class="radio-title">Коллинзы</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="type-radio-12" name="type-radio">
+										<label class="type-radio-label" for="type-radio-12">
+											<span class="radio-title">Пусто</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="type-radio-13" name="type-radio">
+										<label class="type-radio-label" for="type-radio-13">
+											<span class="radio-title">Пусто</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+									</div>
+								</div>
+							</div>
+							
+				</fieldset>
+		</div>
+	
+	<!-- ========== slider ==============-->		
+		<div class="slider">
+			<div class="prev-arrow-block">
+				<a class="prevArrow" href="#">
+					<img src="images/prev.png" alt="">
+				</a>
+			</div>
+			<div class="next-arrow-block">
+				<a class="nextArrow" href="#">
+					<img src="images/next.png" alt="">
+				</a>
+			</div>
+			<div class="slider-zone">
+				<div class="slider-thumb"></div>
+			</div>
+			
+			<div class="list">
+				<span class="list-title">Показать списком</span>
+			</div>
+		</div>
+	
+	<!-- ========== cocktail tags ========== -->				
+		<div class="title tags-title">ТЕГИ<span></span></div>
+		
+	<!-- ========== gobletsWrapper ========== -->	
+		<div id="gobletsWrapper"  class="checkbox-field fieldset-wrapper border-gradient">
+				<fieldset id="goblets" class="content-gradient">
+							<div class="checkboxWrapper">
+								<div class="invisible">
+									<div class="slider-elem">
+										<input type="checkbox" class="radioStyle" id="goblets-checkbox-1" name="goblets-checkbox1">
+										<label class="goblets-checkbox-label" for="goblets-checkbox-1">
+											Бодрящие<span class="checkboxStyle"></span>
+										</label>								
+										
+										<input type="checkbox" class="radioStyle" id="goblets-checkbox-2" name="goblets-checkbox2">
+										<label class="goblets-checkbox-label" for="goblets-checkbox-2">
+											Горькие<span class="checkboxStyle"></span>
+
+										</label>
+										
+										<input type="checkbox" class="radioStyle" id="goblets-checkbox-3" name="goblets-checkbox3">
+										<label class="goblets-checkbox-label" for="goblets-checkbox-3">
+											Для компании<span class="checkboxStyle"></span>
+
+										</label>
+										
+										<input type="checkbox" class="radioStyle" id="goblets-checkbox-4" name="goblets-checkbox4">
+										<label class="goblets-checkbox-label" for="goblets-checkbox-4">
+											Кислие<span class="checkboxStyle"></span>
+
+										</label>
+										
+										<input type="checkbox" class="radioStyle" id="goblets-checkbox-5" name="goblets-checkbox5">
+										<label class="goblets-checkbox-label" for="goblets-checkbox-5">
+											Лонгдринк<span class="checkboxStyle"></span>
+
+										</label>
+										
+										<input type="checkbox" class="radioStyle" id="goblets-checkbox-6" name="goblets-checkbox6">
+										<label class="goblets-checkbox-label" for="goblets-checkbox-6">
+											Необычные по употреблению<span class="checkboxStyle"></span>
+
+										</label>	
+
+										<input type="checkbox" class="radioStyle" id="goblets-checkbox-7" name="goblets-checkbox7">
+										<label class="goblets-checkbox-label" for="goblets-checkbox-7">
+											Овощные<span class="checkboxStyle"></span>
+
+										</label>
+
+										<input type="checkbox" class="radioStyle" id="goblets-checkbox-8" name="goblets-checkbox8">
+										<label class="goblets-checkbox-label" for="goblets-checkbox-8">
+											Огненные<span class="checkboxStyle"></span>
+
+										</label>	
+
+										<input type="checkbox" class="radioStyle" id="goblets-checkbox-9" name="goblets-checkbox9">
+										<label class="goblets-checkbox-label" for="goblets-checkbox-9">
+											Освежающие<span class="checkboxStyle"></span>
+										</label>
+										
+										<input type="checkbox" class="radioStyle" id="goblets-checkbox-10" name="goblets-checkbox10">
+										<label class="goblets-checkbox-label" for="goblets-checkbox-10">
+											Пусто<span class="checkboxStyle"></span>
+										</label>
+										
+										<input type="checkbox" class="radioStyle" id="goblets-checkbox-11" name="goblets-checkbox11">
+										<label class="goblets-checkbox-label" for="goblets-checkbox-11">
+											Пусто<span class="checkboxStyle"></span>
+										</label>
+									</div>
+								</div>
+							</div>
+				</fieldset>
+		</div>
+		
+	<!-- ========== slider ==============-->		
+		<div class="slider">
+			<div class="prev-arrow-block">
+				<a class="prevArrow" href="#">
+					<img src="images/prev.png" alt="">
+				</a>
+			</div>
+			<div class="next-arrow-block">
+				<a class="nextArrow" href="#">
+					<img src="images/next.png" alt="">
+				</a>
+			</div>
+			<div class="slider-zone">
+				<div class="slider-thumb"></div>
+			</div>
+			
+			<div class="list">
+				<span class="list-title">Показать списком</span>
+			</div>
+		</div>			
+	
+	<!-- ========== chalice ========== -->				
+		<div class="title chalice-title">БОКАЛИ<span></span></div>
+		
+	<!-- ========== chaliceWrapper ========== -->	
+		<div id="chaliceWrapper"  class="input-field fieldset-wrapper border-gradient">
+				<fieldset id="chalice" class="content-gradient">
+							<div class="radioWrapper">
+								<div class="invisible">
+									<div class="slider-elem">
+										<input type="radio" class="radioStyle" id="chalice-radio-1" name="chalice-radio">
+										<label class="type-radio-label" for="chalice-radio-1">
+											<span class="radio-title">Бокал для белого вина</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="chalice-radio-2" name="chalice-radio">
+										<label class="type-radio-label" for="chalice-radio-2">
+											<span class="radio-title">Бокал для красного вина</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="chalice-radio-3" name="chalice-radio">
+										<label class="type-radio-label" for="chalice-radio-3">
+											<span class="radio-title">Бокал для слоистых коктелей</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="chalice-radio-4" name="chalice-radio">
+										<label class="type-radio-label" for="chalice-radio-4">
+											<span class="radio-title">Бокал сауэр</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="chalice-radio-5" name="chalice-radio">
+										<label class="type-radio-label" for="chalice-radio-5">
+											<span class="radio-title">Бокал харикейн</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="chalice-radio-6" name="chalice-radio">
+										<label class="type-radio-label" for="chalice-radio-6">
+											<span class="radio-title">Граненый стакан</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="chalice-radio-7" name="chalice-radio">
+										<label class="type-radio-label" for="chalice-radio-7">
+											<span class="radio-title">Пусто</span>
+											<span class="radio-circle"></span>
+										</label>
+										
+										<input type="radio" class="radioStyle" id="chalice-radio-8" name="chalice-radio">
+										<label class="type-radio-label" for="chalice-radio-8">
+											<span class="radio-title">Пусто</span>
+											<span class="radio-circle"></span>
+										</label>
+									</div>
+								</div>
+							</div>
+							
+				</fieldset>
+		</div>
+		
+	<!-- ========== slider ==============-->		
+		<div class="slider">
+			<div class="prev-arrow-block">
+				<a class="prevArrow" href="#">
+					<img src="images/prev.png" alt="">
+				</a>
+			</div>
+			<div class="next-arrow-block">
+				<a class="nextArrow" href="#">
+					<img src="images/next.png" alt="">
+				</a>
+			</div>
+			<div class="slider-zone">
+				<div class="slider-thumb"></div>
+			</div>
+			
+			<div class="list">
+				<span class="list-title">Показать списком</span>
+			</div>
+		</div>	
+	
+	<!-- ========== decoration ========== -->				
+		<div class="title decoration-title">УКРАШЕНИЯ<span></span></div>
+	
+	<!-- ========== decorationWrapper ========== -->
+	<div id="decorationWrapper"  class="checkbox-field fieldset-wrapper border-gradient">
+				<fieldset id="decoration" class="content-gradient">
+							<div class="checkboxWrapper">
+								<div class="invisible">
+									<div class="slider-elem">
+										<input type="checkbox" class="radioStyle" id="decoration-checkbox-1" name="goblets-checkbox1">
+										<label class="goblets-checkbox-label" for="decoration-checkbox-1">
+											Апельсин на бокале<span class="checkboxStyle"></span>
+										</label>																
+										<input type="checkbox" class="radioStyle" id="decoration-checkbox-2" name="goblets-checkbox2">
+										<label class="goblets-checkbox-label" for="decoration-checkbox-2">
+											Веточка мяты<span class="checkboxStyle"></span>
+										</label>
+									
+										<input type="checkbox" class="radioStyle" id="decoration-checkbox-3" name="goblets-checkbox3">
+										<label class="goblets-checkbox-label" for="decoration-checkbox-3">
+											Взбитые сливки с вишней<span class="checkboxStyle"></span>
+										</label>
+										
+										<input type="checkbox" class="radioStyle" id="decoration-checkbox-4" name="goblets-checkbox4">
+										<label class="goblets-checkbox-label" for="decoration-checkbox-4">
+											Виноград на шпажке<span class="checkboxStyle"></span>
+										</label>
+										
+										<input type="checkbox" class="radioStyle" id="decoration-checkbox-5" name="goblets-checkbox5">
+										<label class="goblets-checkbox-label" for="decoration-checkbox-5">
+											Вишенка на шпажке<span class="checkboxStyle"></span>
+										</label>
+										
+										<input type="checkbox" class="radioStyle" id="decoration-checkbox-6" name="goblets-checkbox6">
+										<label class="goblets-checkbox-label" for="decoration-checkbox-6">
+											Долька мандарина<span class="checkboxStyle"></span>
+										</label>
+
+										<input type="checkbox" class="radioStyle" id="decoration-checkbox-7" name="goblets-checkbox7">
+										<label class="goblets-checkbox-label" for="decoration-checkbox-7">
+											Пусто<span class="checkboxStyle"></span>
+										</label>
+										
+										<input type="checkbox" class="radioStyle" id="decoration-checkbox-8" name="goblets-checkbox8">
+										<label class="goblets-checkbox-label" for="decoration-checkbox-8">
+											Пусто<span class="checkboxStyle"></span>
+										</label>
+										
+										<input type="checkbox" class="radioStyle" id="decoration-checkbox-9" name="goblets-checkbox9">
+										<label class="goblets-checkbox-label" for="decoration-checkbox-9">
+											Пусто<span class="checkboxStyle"></span>
+										</label>
+									</div>
+							</div>
+							</div>
+				</fieldset>
+		</div>
+	
+		<!-- ========== slider ==============-->		
+		<div class="slider">
+			<div class="prev-arrow-block">
+				<a class="prevArrow" href="#">
+					<img src="images/prev.png" alt="">
+				</a>
+			</div>
+			<div class="next-arrow-block">
+				<a class="nextArrow" href="#">
+					<img src="images/next.png" alt="">
+				</a>
+			</div>
+			<div class="slider-zone">
+				<div class="slider-thumb"></div>
+			</div>
+			
+			<div class="list">
+				<span class="list-title">Показать списком</span>
+			</div>
+		</div>	
+		
+		<!-- ========== footer ==============-->
+		<footer>
+			<label class="button" for="submitButton"><span></span></label>
+			<input id="submitButton" type="submit" name="submit">
+			<label class="button" for="resetButton"><span></span></label>
+			<input id="resetButton" type="reset"  name="reset">
+		</footer>
+	</form>
+  <script src="js/script.js"></script>
+</body>
+</html>
